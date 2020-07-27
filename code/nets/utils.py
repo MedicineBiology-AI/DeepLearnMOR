@@ -10,7 +10,7 @@ from six.moves import urllib
 
 # Return a sorted list of image files at image_dir
 def get_image_files(image_dir):
-  fs = glob("{}/*.jpeg".format(image_dir))
+  fs = glob("{}/*.jpg".format(image_dir))
   fs = [os.path.basename(filename) for filename in fs]
   return sorted(fs)
 
