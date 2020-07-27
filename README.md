@@ -27,8 +27,8 @@ Before training, follow these data prep steps:
 2) Use "dataArgument.py" for data argument. What "dataArgument.py" does is divide each image into 4 parts, and rotate and flip them, which can be increase by 32 times. (TODO: different steps for data aug among training, val, test dataset.)
 
 # Pre-trained model weights
-Download the pre-training weights to the "pretrained" folder. The weights of VGG16, resnet_v2_50,
-resnet_V2_101, resnet_v2_152 and mobilenet_v2 can be downloaded here: https://github.com/tensorflow/models/tree/master/research/slim.
+Download the pre-training weights to the "pretrained" folder and untar them. The DenseNet model weights are under the folder "pretrained/densenet". If you want to change the folder name of each pre-trained model. Please open the code in "code/nets/pretrain_model.py", and edit the parameter "model_file_name". .
+The weights of VGG16, resnet_v2_50, resnet_V2_101, resnet_v2_152 and mobilenet_v2 can be downloaded here: https://github.com/tensorflow/models/tree/master/research/slim.
 
 The weights of densenet121, densenet169 and densenet201 can be downloaded here: https://github.com/fchollet/deep-learning-models/releases/tag/v0.8.
 
