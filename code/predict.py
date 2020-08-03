@@ -21,8 +21,10 @@ tf.reset_default_graph()
 FLAGS = None
 
 # The absolute path of your project
-path="E:/PythonWorkspace/Python36/DeepOrganelle/"
+path="../"
 
+# The model you need to predict. 
+# Choose from "inception_v3", "vgg16", "resnet_v2_50", "resnet_v2_101", "resnet_v2_152", "mobilenet_v2", "densenet121", "densenet169", "densenet201".
 model_name="densenet169"
 
 # Read in labels
