@@ -14,7 +14,12 @@ https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
 
 ## How to set up?
 1) Install:
-   Python 3.6, Tensorflow 1.14.0, Keras 2.2.4, pycharm
+   Python 3.6,
+   Tensorflow-gpu 1.14.0,
+   CUDA 10.0,
+   cuDNN v7.4,
+   Keras 2.2.4,
+   pycharm
 
 2) Clone this repository
 
