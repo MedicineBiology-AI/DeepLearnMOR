@@ -48,60 +48,57 @@ python dataAugment.py
 ```
 
 ## How to train:
-Edit the "train_[model_name].py" file (such as "train_densenet_169.py") of the corresponding model, and change the "path" in line 27 accordingly, and then you should be able to train the model. 
-In case you want to change the data set, please modify the "--images_dir" in the code.
+Run the "train_[model_name].py" file (such as "train_densenet_169.py") of the corresponding model, and then you should be able to train the model. 
+In case you want to change the data set, please modify the "--images_dir" in the code. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python train_[model_name].py
-   --path=/project_path
    --images_dir=/project_path/images
 ```
 
 ## Generate ROC curves and confusion_matrix
-First edit "predict.py" file and change the "path" in line 24 which is the path of your project and the "model_name" in line 26 which is the model you want to predict. Then run "predict.py" repeatedly to generate prediction data for all pre-trained models. 
+Run the "predict_[model_name].py" file (such as "p_densenet_169.py") of the corresponding model, and then generate prediction data for each pre-trained models. 
+In case you want to change the data set, please modify the "--images_dir" in the code. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python predict.py
    --images_dir=/project_path/images
 ```
-Chose the pre-trained model and run "ROC.py" and "confusion_matrix.py". You will get the ROC curves and confusion_matrix of the pre-trained model you selected and the ROC curves of each pre-trained models. ROC curves and confusion_matrix for all models can be obtained in the same manner.
+Chose the pre-trained model and run "ROC.py" and "confusion_matrix.py". You can change the model by modifying "--model_name".
+The "--model_name" you can choose from "inception_v3", "vgg16", "resnet_v2_50", "resnet_v2_101", "resnet_v2_152", "mobilenet_v2", "densenet121", "densenet169" and "densenet201".
+You will get the ROC curves and confusion_matrix of the pre-trained model you selected and the ROC curves of each pre-trained models. 
+ROC curves and confusion_matrix for all models can be obtained in the same manner.
 ```
 python ROC.py 
-   --path=/project_path 
    --model_name=model_name
 ```
 ```
 python confusion_matrix.py 
-   --path=/project_path 
    --model_name=model_name
 ```
 
 ## Visualization:
-First, open directory of "CNN", and run "CNN/train.py" to train the CNN model.
+First, open directory of "CNN", and run "CNN/train.py" to train the CNN model. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python train.py 
-   --path=/project_path/code/CNN
    --images_dir=/project_path/images
 ```
 
 #### Hidden Layer Output Visualization:
---Modify the correct path and run "CNN/hidden_layer_output_visualization.py", you will get the hidden layer output of each channel and the feature map with maximum activation.
+Run "CNN/hidden_layer_output_visualization.py", you will get the hidden layer output of each channel and the feature map with maximum activation. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python hidden_layer_output_visualization.py
-   --path=/project_path/code/CNN
    --images_dir=/project_path/images
 ```
 
 #### Feature Visualization:
---Generate a random image and feed it to "CNN/feature_visualization.py", you will get the activation feature of the top 16 activation values.
+Generate a random image and feed it to "CNN/feature_visualization.py", you will get the activation feature of the top 16 activation values.
 ```
 python feature_visualization.py
-   --path=/project_path/code/CNN
 ```
 
 #### Grad-CAM:
---Modify the correct path and run "CNN/Grad-CAM.py", you will get all images of Grad-CAM. After adjusting the code, you will get the corresponding heatmap.
+Run "CNN/Grad-CAM.py", you will get all images of Grad-CAM. After adjusting the code, you will get the corresponding heatmap. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python Grad-CAM.py
-   --path=/project_path/code/CNN
    --images_dir=/project_path/images
 ```
 
