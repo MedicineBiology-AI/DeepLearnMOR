@@ -52,7 +52,7 @@ Run the "train_[model_name].py" file (such as "train_densenet_169.py") of the co
 In case you want to change the data set, please modify the "--images_dir" in the code. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python train_[model_name].py
-   --images_dir=/project_path/images
+   --images_dir=/your_dataset_directory
 ```
 
 ## Generate ROC curves and confusion_matrix
@@ -60,7 +60,7 @@ Run the "predict_[model_name].py" file (such as "p_densenet_169.py") of the corr
 In case you want to change the data set, please modify the "--images_dir" in the code. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python predict.py
-   --images_dir=/project_path/images
+   --images_dir=/your_dataset_directory
 ```
 Chose the pre-trained model and run "ROC.py" and "confusion_matrix.py". You can change the model by modifying "--model_name".
 The "--model_name" you can choose from "inception_v3", "vgg16", "resnet_v2_50", "resnet_v2_101", "resnet_v2_152", "mobilenet_v2", "densenet121", "densenet169" and "densenet201".
@@ -79,14 +79,14 @@ python confusion_matrix.py
 First, open directory of "CNN", and run "CNN/train.py" to train the CNN model. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python train.py 
-   --images_dir=/project_path/images
+   --images_dir=/your_dataset_directory
 ```
 
 #### Hidden Layer Output Visualization:
 Run "CNN/hidden_layer_output_visualization.py", you will get the hidden layer output of each channel and the feature map with maximum activation. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python hidden_layer_output_visualization.py
-   --images_dir=/project_path/images
+   --images_dir=/your_dataset_directory
 ```
 
 #### Feature Visualization:
@@ -99,6 +99,6 @@ python feature_visualization.py
 Run "CNN/Grad-CAM.py", you will get all images of Grad-CAM. After adjusting the code, you will get the corresponding heatmap. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
 python Grad-CAM.py
-   --images_dir=/project_path/images
+   --images_dir=/your_dataset_directory
 ```
 
