@@ -80,6 +80,12 @@ if __name__=="__main__":
         default=0.0001,
         help="Initial learning rate"
     )
+    parser.add_argument(
+        "--batch_size",
+        type=int,
+        default=128,
+        help="How many images to train on at a time."
+    )
     FLAGS, unparsed = parser.parse_known_args()
 
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
