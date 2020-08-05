@@ -42,6 +42,17 @@ def main(_):
     test_loss, test_acc = model.evaluate(test_datas, test_labels)
 
     print("Test accuracy:{0:.4f}, test loss:{1:.4f}".format(test_acc, test_loss))
+    
+    prediction=model.predict(test_datas, batch_size=FLAGS.batch_size)
+
+    pre_data_dir = os.path.join("../../predictData/CNN")
+
+    if not os.path.exists(pre_data_dir):
+        os.makedirs(pre_data_dir)
+
+    with h5py.File(os.path.join(pre_data_dir,"prediction_and_labels.h5"),"w") as f:
+        f["prediction"]=prediction
+        f["truth"]=test_labels
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
