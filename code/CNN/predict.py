@@ -45,7 +45,7 @@ def main(_):
     
     prediction=model.predict(test_datas, batch_size=FLAGS.batch_size)
 
-    pre_data_dir = os.path.join("../../predictData/CNN")
+    pre_data_dir = "../../predictData/CNN"
 
     if not os.path.exists(pre_data_dir):
         os.makedirs(pre_data_dir)
@@ -84,7 +84,7 @@ if __name__=="__main__":
         "--batch_size",
         type=int,
         default=128,
-        help="How many images to train on at a time."
+        help="How many images to test on at a time."
     )
     FLAGS, unparsed = parser.parse_known_args()
 
