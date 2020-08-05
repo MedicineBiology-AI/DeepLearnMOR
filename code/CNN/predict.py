@@ -43,7 +43,7 @@ def main(_):
 
     print("Test accuracy:{0:.4f}, test loss:{1:.4f}".format(test_acc, test_loss))
     
-    prediction=model.predict(test_datas, batch_size=FLAGS.batch_size)
+    prediction=model.predict(test_datas)
 
     pre_data_dir = "../../predictData/CNN"
 
@@ -79,12 +79,6 @@ if __name__=="__main__":
         type=float,
         default=0.0001,
         help="Initial learning rate"
-    )
-    parser.add_argument(
-        "--batch_size",
-        type=int,
-        default=128,
-        help="How many images to test on at a time."
     )
     FLAGS, unparsed = parser.parse_known_args()
 
