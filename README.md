@@ -25,6 +25,9 @@ https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
 
 3) Untar the downloaded file
 
+## Operating environment
+These models were trained on an Ubuntu 18.04 computer with 2 Intel Xeon CPUs, using a GTX TITAN X 12Gb GPU for training and testing, with 96Gb available in RAM memory.
+
 ## DataSet spec:
 Dataset: DeepOrganelleDataset.zip. 
 Before training, follow these data prep steps:
