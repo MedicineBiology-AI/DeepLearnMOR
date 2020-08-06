@@ -56,7 +56,7 @@ def main(_):
 
     result=get_result()
 
-    checkpoint_path=os.path.join(FLAGS.path,"weights/weights", "model.h5df")
+    checkpoint_path=os.path.join(FLAGS.path,"save_model", "CNN.h5df")
     checkpoint=ModelCheckpoint(filepath=checkpoint_path,
                                save_best_only=True,
                                save_weights_only=True,
@@ -90,7 +90,7 @@ def main(_):
 
     print("Test accuracy:{0:.4f}, test loss:{1:.4f}".format(test_acc1, test_loss1))
 
-    model.load_weights(os.path.join(FLAGS.path, "weights/weights/", "model.h5df"))
+    model.load_weights(os.path.join(FLAGS.path, "save_model", "CNN.h5df"))
     test_loss2, test_acc2 = model.evaluate(test_datas, test_labels)
 
     time_elapsed = time.time() - since

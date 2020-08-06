@@ -32,7 +32,7 @@ def main(_):
                   optimizer=opt,
                   metrics=["accuracy"])
 
-    model.load_weights(os.path.join(FLAGS.path,"weights/weights/", "model.h5df"))
+    model.load_weights(os.path.join(FLAGS.path,"save_model", "CNN.h5df"))
 
     image_lists = data_process.create_image_lists(FLAGS.images_dir)
 
