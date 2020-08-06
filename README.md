@@ -78,13 +78,20 @@ python confusion_matrix.py
    --model_name=model_name
 ```
 
-## Visualization:
-First, open directory of "CNN", and run "CNN/train.py" to train the CNN model. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
+## Train and predict CNN
+Run the "train_cnn.py" in the folder "code/CNN" to train the CNN model that we constructed. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
-python train.py 
+python train_cnn.py 
+   --images_dir=/your_dataset_directory
+```
+After training, the model will be saved in "code/CNN/save_model/CNN.h5df". Here, we save the model we trained. You can run "predict_cnn.py" in the folder "code/CNN" to get the results in the paper.
+You can also retrain the CNN model, and the new training model weights will overwrite the file "code/CNN/save_model/CNN.h5df".
+```
+python predict_cnn.py 
    --images_dir=/your_dataset_directory
 ```
 
+## Visualization:
 #### Hidden Layer Output Visualization:
 Run "CNN/hidden_layer_output_visualization.py", you will get the hidden layer output of each channel and the feature map with maximum activation. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
