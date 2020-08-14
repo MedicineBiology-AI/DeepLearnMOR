@@ -1,17 +1,5 @@
 # Deep learning framework for organelle fluorescent image classification
 
-## Code reference:
-Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning.
-DOI: http://dx.doi.org/10.17632/rscbjbr9sj.2#file-b267c884-6b3b-43ff-a992-57960f740d0f
-
-## Pre-trained model in Tensorflow for Transfer Learning:
-"TensorFlow-Slim image classification model library" N. Silberman and S. Guadarrama, 2016.
-https://github.com/tensorflow/models/tree/master/research/slim
-
-## DenseNet weights reference:
-Keras. Chollet, Francois and others. 2015.
-https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
-
 ## How to set up?
 1) Install:
    Python 3.6,
@@ -111,4 +99,16 @@ Run "CNN/Grad-CAM.py", you will get all images of Grad-CAM. After adjusting the 
 python Grad-CAM.py
    --images_dir=/your_dataset_directory
 ```
+
+## Code reference:
+Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning.
+DOI: http://dx.doi.org/10.17632/rscbjbr9sj.2#file-b267c884-6b3b-43ff-a992-57960f740d0f
+
+## Pre-trained model in Tensorflow for Transfer Learning:
+"TensorFlow-Slim image classification model library" N. Silberman and S. Guadarrama, 2016.
+https://github.com/tensorflow/models/tree/master/research/slim
+
+## DenseNet weights reference:
+Keras. Chollet, Francois and others. 2015.
+https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
 

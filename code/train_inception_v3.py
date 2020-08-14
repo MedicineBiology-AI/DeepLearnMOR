@@ -212,7 +212,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model_dir",
         type=str,
-        default="../pretrained/inception_v3",
+        default="../pretrained",
         help="Path to pretrained weights"
     )
     parser.add_argument(

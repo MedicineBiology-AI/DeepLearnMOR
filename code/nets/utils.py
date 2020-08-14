@@ -16,8 +16,7 @@ def get_image_files(image_dir):
     return sorted(fs)
 
 
-# Download inception model if not already at 'inception_url'
-def download_inception_weights(inception_url, dest_dir):
+def download_pretrained_model_weights(inception_url, dest_dir, unzip):
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
 
@@ -33,7 +32,8 @@ def download_inception_weights(inception_url, dest_dir):
         print()
         statinfo = os.stat(filepath)
         tf.logging.info("Successfully downloaded", filename, statinfo.st_size, "bytes.")
-        tarfile.open(filepath, "r:gz").extractall(dest_dir)
+        if (unzip == True):
+            tarfile.open(filepath, "r:gz").extractall(dest_dir)
 
 
 def create_image_lists(image_dir):

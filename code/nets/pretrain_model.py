@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import os
 import tensorflow as tf
+import tarfile
 
 from tensorflow.python.platform import gfile
 from tensorflow.python.framework import graph_util
@@ -55,10 +56,16 @@ def load_inception_v3(model_dir):
     resized_input_tensor_name = "Mul:0"
     model_file_name = "classify_image_graph_def.pb"
 
-    utils.download_inception_weights(inception_url, model_dir)
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
 
     with tf.Graph().as_default() as graph:
-        model_path = os.path.join(model_dir, model_file_name)
+        model_path = os.path.join(filepath, model_file_name)
         with gfile.FastGFile(model_path, "rb") as f:
             graph_def = tf.GraphDef()
             graph_def.ParseFromString(f.read())
@@ -77,8 +84,18 @@ def load_inception_v3(model_dir):
 
 # Load VGG 16 model
 def load_vgg_16(model_dir, sess):
-    model_file_name = "vgg_16_2016_08_28/vgg_16.ckpt"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz"
+
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = "vgg_16.ckpt"
+    model_path = os.path.join(filepath, model_file_name)
 
     resized_input_tensor = tf.placeholder(tf.float32, shape=[None, None, None, 3])
     with tf.contrib.slim.arg_scope(vgg.vgg_arg_scope()):
@@ -99,8 +116,18 @@ def load_vgg_16(model_dir, sess):
 
 # Load ResNet v2 50 model
 def load_resnet_v2_50(model_dir, sess):
-    model_file_name = "resnet_v2_50_2017_04_14/resnet_v2_50.ckpt"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "http://download.tensorflow.org/models/resnet_v2_50_2017_04_14.tar.gz"
+
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = "resnet_v2_50.ckpt"
+    model_path = os.path.join(filepath, model_file_name)
 
     resized_input_tensor = tf.placeholder(tf.float32, shape=[None, None, None, 3])
     with tf.contrib.slim.arg_scope(resnet_v2.resnet_arg_scope()):
@@ -121,8 +148,18 @@ def load_resnet_v2_50(model_dir, sess):
 
 # Load ResNet v2 101 model
 def load_resnet_v2_101(model_dir, sess):
-    model_file_name = "resnet_v2_101_2017_04_14/resnet_v2_101.ckpt"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "http://download.tensorflow.org/models/resnet_v2_101_2017_04_14.tar.gz"
+
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = "resnet_v2_101.ckpt"
+    model_path = os.path.join(filepath, model_file_name)
 
     resized_input_tensor = tf.placeholder(tf.float32, shape=[None, None, None, 3])
     with tf.contrib.slim.arg_scope(resnet_v2.resnet_arg_scope()):
@@ -143,8 +180,18 @@ def load_resnet_v2_101(model_dir, sess):
 
 # Load ResNet v2 152 model
 def load_resnet_v2_152(model_dir, sess):
-    model_file_name = "resnet_v2_152_2017_04_14/resnet_v2_152.ckpt"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "http://download.tensorflow.org/models/resnet_v2_152_2017_04_14.tar.gz"
+
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = "resnet_v2_152.ckpt"
+    model_path = os.path.join(filepath, model_file_name)
 
     resized_input_tensor = tf.placeholder(tf.float32, shape=[None, None, None, 3])
     with tf.contrib.slim.arg_scope(resnet_v2.resnet_arg_scope()):
@@ -165,8 +212,18 @@ def load_resnet_v2_152(model_dir, sess):
 
 # Load MobileNet v2 model
 def load_mobilenet_v2(model_dir, sess):
-    model_file_name = "mobilenet_v2_1.4_224/mobilenet_v2_1.4_224.ckpt"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.4_224.tgz"
+
+    filename = model_url.split("/")[-1]
+    filepath = os.path.join(model_dir, filename.split(".tgz")[0])
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=True)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = "mobilenet_v2_1.4_224.ckpt"
+    model_path = os.path.join(filepath, model_file_name)
 
     resized_input_tensor = tf.placeholder(tf.float32, shape=[None, None, None, 3])
     with tf.contrib.slim.arg_scope(mobilenet_v2.training_scope()):
@@ -187,8 +244,17 @@ def load_mobilenet_v2(model_dir, sess):
 
 # Load DenseNet 121 model
 def load_densenet_121(model_dir):
-    model_file_name = "densenet/densenet121_weights_tf_dim_ordering_tf_kernels_notop.h5"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "https://github.com/fchollet/deep-learning-models/releases/download/v0.8/densenet121_weights_tf_dim_ordering_tf_kernels_notop.h5"
+
+    filepath = os.path.join(model_dir, "densenet")
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=False)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = model_url.split("/")[-1]
+    model_path = os.path.join(filepath, model_file_name)
 
     with tf.name_scope("DenseNet"):
         model = tf.keras.applications.densenet.DenseNet121(include_top=False, weights=None, pooling='avg')
@@ -203,8 +269,17 @@ def load_densenet_121(model_dir):
 
 # Load DenseNet 169 model
 def load_densenet_169(model_dir):
-    model_file_name = "densenet/densenet169_weights_tf_dim_ordering_tf_kernels_notop.h5"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "https://github.com/fchollet/deep-learning-models/releases/download/v0.8/densenet169_weights_tf_dim_ordering_tf_kernels_notop.h5"
+
+    filepath = os.path.join(model_dir, "densenet")
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=False)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = model_url.split("/")[-1]
+    model_path = os.path.join(filepath, model_file_name)
 
     with tf.name_scope("DenseNet"):
         model = tf.keras.applications.densenet.DenseNet169(include_top=False, weights=None, pooling='avg')
@@ -219,8 +294,17 @@ def load_densenet_169(model_dir):
 
 # Load DenseNet 201 model
 def load_densenet_201(model_dir):
-    model_file_name = "densenet/densenet201_weights_tf_dim_ordering_tf_kernels_notop.h5"
-    model_path = os.path.join(model_dir, model_file_name)
+    model_url = "https://github.com/fchollet/deep-learning-models/releases/download/v0.8/densenet201_weights_tf_dim_ordering_tf_kernels_notop.h5"
+
+    filepath = os.path.join(model_dir, "densenet")
+
+    try:
+        utils.download_pretrained_model_weights(model_url, filepath, unzip=False)
+    except:
+        print("Pre-training weights download failed!")
+
+    model_file_name = model_url.split("/")[-1]
+    model_path = os.path.join(filepath, model_file_name)
 
     with tf.name_scope("DenseNet"):
         model = tf.keras.applications.densenet.DenseNet201(include_top=False, weights=None, pooling='avg')
