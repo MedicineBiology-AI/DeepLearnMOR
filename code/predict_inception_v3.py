@@ -95,7 +95,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--images_dir",
         type=str,
-        default="../tmpDataset",
+        default="../DeepOrganelleAugmentedDataset",
         help="Images folder directory."
     )
     parser.add_argument(

@@ -34,31 +34,6 @@ def draw_roc_for_class(prediction, truth, class_list):
     plt.legend(loc="lower right",fontsize=11.5)
     plt.show()
 
-def draw_roc_for_model(pre_data_dir):
-    plt.figure(figsize=(10, 8))
-
-    model_name = ["inception_v3", "densenet121", "densenet169", "densenet201", "vgg16",
-                  "resnet_v2_50", "resnet_v2_101", "resnet_v2_152", "mobilenet_v2"]
-
-    for i in model_name:
-        data_path = os.path.join(pre_data_dir, i, "prediction_and_labels.h5")
-        with h5py.File(data_path, "r") as f:
-            prediction = np.array(f["prediction"])
-            truth = np.array(f["truth"])
-
-        FPR, TPR, thresholds = roc_curve(truth.ravel(), prediction.ravel())
-        roc_auc = auc(FPR, TPR)
-        plt.plot(FPR, TPR, label="{0:s} (AUC = {1:.4f})".format(i, roc_auc))
-
-    plt.plot([0, 1], [0, 1], ":", color=(0.6, 0.6, 0.6), label="reference")
-    plt.xlim([-0.02, 1.05])
-    plt.ylim([-0.02, 1.05])
-    plt.xlabel("False Positive Rate")
-    plt.ylabel("True Positive Rate")
-    plt.title(" ROC curves")
-    plt.legend(loc="lower right",fontsize=11.5)
-    plt.show()
-
 def main(_):
     path=FLAGS.path
     model_name = FLAGS.model_name
@@ -86,15 +61,13 @@ def main(_):
 
         # Draw ROC curve for each class of a model
         draw_roc_for_class(prediction, truth, class_list)
-        # Draw ROC curve for different pre-trained models
-        draw_roc_for_model(os.path.join(FLAGS.path, "predictData"))
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--path",
         type=str,
-        default="E:/PythonWorkspace/Python36/DeepOrganelle",
+        default="../",
         help="The absolute path of your project."
     )
     parser.add_argument(

@@ -66,7 +66,7 @@ if __name__=="__main__":
     parser.add_argument(
         "--path",
         type=str,
-        default="E:/PythonWorkspace/Python36/DeepOrganelle",
+        default="../",
         help="The absolute path of your project."
     )
     parser.add_argument(
