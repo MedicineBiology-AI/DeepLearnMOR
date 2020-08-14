@@ -58,17 +58,17 @@ python train_[model_name].py
    --images_dir=/your_dataset_directory
 ```
 
-## Generate ROC curves and confusion_matrix
+## Generate ROC curves and confusion matrix
 Run the "predict_[model_name].py" file (such as "p_densenet_169.py") of the corresponding model, and then generate prediction data for each pre-trained models. 
-In case you want to change the data set, please modify the "--images_dir" in the code. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
+We have adopted the relative path, if you want to change the dataset, please change "--images_dir".
 ```
 python predict.py
    --images_dir=/your_dataset_directory
 ```
 Chose the pre-trained model and run "ROC.py" and "confusion_matrix.py". You can change the model by modifying "--model_name".
 The "--model_name" you can choose from "inception_v3", "vgg16", "resnet_v2_50", "resnet_v2_101", "resnet_v2_152", "mobilenet_v2", "densenet121", "densenet169" and "densenet201".
-You will get the ROC curves and confusion_matrix of the pre-trained model you selected and the ROC curves of each pre-trained models. 
-ROC curves and confusion_matrix for all models can be obtained in the same manner.
+You will get the ROC curves and confusion_matrix of the pre-trained model you selected. 
+You can get ROC curves and confusion matrix of all models by change "--model_name".
 ```
 python ROC.py 
    --model_name=model_name
