@@ -1,7 +1,13 @@
 # Deep learning framework for organelle fluorescent image classification
 
+## Code Contribution
+Jiying Li: Coding "partitioned_dataset.py" and "augment_partition_dataset.py", reviewing codes and providing advices.
+Jinghao Peng: Coding all other codes, managing the codes and data, training the pre-trained model and CNN, testing the pre-trained model and CNN,
+drawing ROC curves and confusion matrix and feature visualization.
+
 ## How to set up?
 1) Install:
+   Anaconda3,
    Python 3.6,
    Tensorflow-gpu 1.14.0,
    CUDA 10.0,
