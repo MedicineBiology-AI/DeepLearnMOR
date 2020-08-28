@@ -43,10 +43,12 @@ First run "partition_dataset.py" to divide the image set into training set, test
 Then run "augment_partitioned_dataset.py" to do the data augmentation. This method divides an image set into 4 parts, rotate and flip each part. After data augmentation, the amount of data will be increased by 32 times.
 ```
 python partition_dataset.py -d /imageset_directory
+
 Example: python partition_dataset.py -d c:\repos\DeepLearnMOR\Dataset
 ```
 ```
 python augment_partitioned_dataset.py -p /imageset_after_partition
+
 Example: python augment_partitioned_dataset.py -p C:\Users\laser\Desktop\PartitionedDataset
 ```
 
