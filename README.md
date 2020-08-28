@@ -1,7 +1,8 @@
-# Deep learning framework for organelle fluorescent image classification
+# DeepLearnMOR: a deep-learning framework for fluorescence image-based classification of organelle morphology
 
 ## Code Contribution
-**Jiying Li:** Coding "partitioned_dataset.py" and "augment_partition_dataset.py", reviewing codes and providing advices.
+**Jiying Li:** Initiated, prototyped and designed the whole project. Started with data augmentation ("partition_dataset.py" and "augment_partitioned_dataset.py") and experimenting Transfering Learing with inception-v3. After receiving promising results, focused on providing experiment guidance, reviewing code and reproducing experimental results.  
+
 <br/>
 **Jinghao Peng:** Coding all other codes, managing the codes and data, training the pre-trained model and CNN, testing the pre-trained model and CNN,
 drawing ROC curves and confusion matrix and feature visualization.
