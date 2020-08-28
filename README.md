@@ -3,7 +3,6 @@
 ## Code Contribution
 **Jiying Li:** Initiated, prototyped and designed the whole project. Started with data augmentation ("partition_dataset.py" and "augment_partitioned_dataset.py") and experimenting Transfering Learing with inception-v3. After receiving promising results, focused on providing experiment guidance, reviewing code and reproducing experimental results.  
 
-<br/>
 **Jinghao Peng:** Coding all other codes, managing the codes and data, training the pre-trained model and CNN, testing the pre-trained model and CNN,
 drawing ROC curves and confusion matrix and feature visualization.
 
