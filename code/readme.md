@@ -1,10 +1,11 @@
-# Deep learning framework for organelle fluorescent image classification
+# DeepLearnMOR: a deep-learning framework for fluorescence image-based classification of organelle morphology
 
-## Code Contribution
-**Jiying Li:** Coding "partitioned_dataset.py" and "augment_partition_dataset.py", reviewing codes and providing advices.
-<br/>
-**Jinghao Peng:** Coding all other codes, managing the codes and data, training the pre-trained model and CNN, testing the pre-trained model and CNN,
-drawing ROC curves and confusion matrix and feature visualization.
+## Welcome to DeepLearnMOR
+DeepLearnMOR (Deep Learning of the Morphology of Organelles) is a deep learning framework that can rapidly classify a diverse array of organelle morphological abnormalities based on fluorescence images. Currently, it classifies morphology of three major energy organelles in Arabidopsis, including chloroplasts, mitochondria and peroxisomes. 
+
+DeepLearnMOR consists of Transfer Learning models and Convolutional Neural Network (CNN). The feature visualization components in DeepLearnMOR identify and extract key features used for decision-making in classification thus provide model interpretability. 
+
+Welcome to DeepLearnMOR, please feel free to "Deep Learn More" by try it out. 
 
 ## How to set up?
 1) Install:<br/>
@@ -18,7 +19,7 @@ drawing ROC curves and confusion matrix and feature visualization.
 
 2) Clone this repository
 
-3) Untar the downloaded file
+3) Download the dataset [here](https://hulabmsu.github.io/DeepLearnMOR/)
 
 ## Operating environment
 These models were trained on an Ubuntu 18.04 computer with 2 Intel Xeon CPUs, using a GTX TITAN X 12Gb GPU for training and testing, with 96Gb available in RAM memory.
@@ -38,12 +39,15 @@ The weights of VGG16, resnet_v2_50, resnet_V2_101, resnet_v2_152 and mobilenet_v
 The weights of densenet121, densenet169 and densenet201 can be downloaded here: https://github.com/fchollet/deep-learning-models/releases/tag/v0.8.
 
 ## Data augmentation:
-Modify the path in "dataAugment.py". This method divides an image set into 4 parts, rotate and flip each part. Atfer data augmentation, the amount of data will be increased by 32 times.
+First run "partition_dataset.py" to divide the image set into training set, test set and validation set according to 8:1:1.<br/>
+Then run "augment_partitioned_dataset.py" to do the data augmentation. This method divides an image set into 4 parts, rotate and flip each part. After data augmentation, the amount of data will be increased by 32 times.
 ```
-python dataAugment.py
-   --source_dir=/source_path
-   --save_dir=/save_path
-   --category=data_set ("train", "val" or "test")
+python partition_dataset.py -d /imageset_directory
+Example: python partition_dataset.py -d c:\repos\DeepLearnMOR\Dataset
+```
+```
+python augment_partitioned_dataset.py -p /imageset_after_partition
+Example: python augment_partitioned_dataset.py -p C:\Users\laser\Desktop\PartitionedDataset
 ```
 
 ## How to train:
@@ -120,3 +124,9 @@ https://github.com/tensorflow/models/tree/master/research/slim
 Keras. Chollet, Francois and others. 2015.
 https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
 
+
+## Code Contribution
+**Jiying Li:** Initiated, prototyped and designed the whole project. Started with data augmentation ("partition_dataset.py" and "augment_partitioned_dataset.py") and experimenting Transfering Learning with inception-v3. After receiving promising results, focused on providing experiment guidance, reviewing code and reproducing experimental results.
+
+**Jinghao Peng:** Coding all other codes, managing the codes and data, training all of the pre-trained model and CNN, testing all of the pre-trained model and CNN,
+drawing ROC curves and confusion matrix and do the feature visualization.
