@@ -1,5 +1,12 @@
 # DeepLearnMOR: a deep-learning framework for fluorescence image-based classification of organelle morphology
 
+## Welcome to DeepLearnMOR
+DeepLearnMOR (Deep Learning of the Morphology of Organelles) is a deep learning framework that can rapidly classify a diverse array of organelle morphological abnormalities based on fluorescence images. Currently, it classifies morphology of three major energy organelles in Arabidopsis, including chloroplasts, mitochondria and peroxisomes. 
+
+DeepLearnMOR consists of Transfer Learning models and Convolutional Neural Network (CNN). The feature visualization components in DeepLearnMOR identify and extract key features used for decision-making in classification thus provide model interpretability. 
+
+Welcome to DeepLearnMOR, please feel free to "Deep Learn More" by try it out. 
+
 ## How to set up?
 1) Install:<br/>
    Anaconda3,<br/>
