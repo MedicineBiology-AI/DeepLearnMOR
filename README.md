@@ -19,7 +19,7 @@ Welcome to DeepLearnMOR, please feel free to "Deep Learn More" by try it out.
 
 2) Clone this repository
 
-3) Untar the downloaded file
+3) Downloaded the dataset [here](https://hulabmsu.github.io/DeepLearnMOR/)
 
 ## Operating environment
 These models were trained on an Ubuntu 18.04 computer with 2 Intel Xeon CPUs, using a GTX TITAN X 12Gb GPU for training and testing, with 96Gb available in RAM memory.
