@@ -80,6 +80,32 @@ python confusion_matrix.py
    --model_name=model_name
 ```
 
+## Train and predict SVM
+Run the "train_svm.py" in the folder "code/SVM" to train the SVM model that we constructed. We used nonlinear SVM with Gaussian kernel function. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
+```
+python train_svm.py 
+   --images_dir=/your_dataset_directory
+```
+After training, the model will be saved in "code/SVM/save_model/Nonlinear_SVM.pickle". Here, we save the model we trained. You can run "predict_svm.py" in the folder "code/SVM" to get the results in the paper.
+You can also retrain the SVM model, and the new training model weights will overwrite the file "code/SVM/save_model/Nonlinear_SVM.pickle".
+```
+python predict_svm.py 
+   --images_dir=/your_dataset_directory
+```
+
+## Train and predict RandomForest
+Run the "train_randomforest.py" in the folder "code/RandomForest" to train the RandomForest model that we constructed. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
+```
+python train_randomforest.py 
+   --images_dir=/your_dataset_directory
+```
+After training, the model will be saved in "code/RandomForest/save_model/RandomForest.ckpt". Here, we save the model we trained. You can run "predict_randomforest.py" in the folder "code/RandomForest" to get the results in the paper.
+You can also retrain the RandomForest model, and the new training model weights will overwrite the file "code/RandomForest/save_model/RandomForest.ckpt".
+```
+python predict_randomforest.py 
+   --images_dir=/your_dataset_directory
+```
+
 ## Train and predict CNN
 Run the "train_cnn.py" in the folder "code/CNN" to train the CNN model that we constructed. We have adopted the relative path, if your dataset is placed elsewhere, please modify "--images_dir".
 ```
@@ -130,5 +156,4 @@ https://github.com/fchollet/deep-learning-models/releases/tag/v0.8
 ## Code Contribution
 **Jiying Li:** Initiated, prototyped and designed the whole project. Started with data augmentation ("partition_dataset.py" and "augment_partitioned_dataset.py") and experimenting Transfering Learning with inception-v3. After receiving promising results, focused on providing experiment guidance, reviewing code and reproducing experimental results.
 
-**Jinghao Peng:** Coding all other codes, managing the codes and data, training all of the pre-trained model and CNN, testing all of the pre-trained model and CNN,
-drawing ROC curves and confusion matrix and do the feature visualization.
+**Jinghao Peng:** Preprocessed data. Edited all of the code of the whole project, including pre-trained model (From the Inception-v3 to the DenseNet201), CNN, SVM and RandomForest. Trained, validated and tested. Drawed the figures of results, including the training process, ROC curves and confusion matrix. Done the feature visualization.
